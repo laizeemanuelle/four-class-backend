@@ -9,7 +9,7 @@
 Informe o cep que deseja consultar: <input type="text" id="txtcep"/>
 <button onclick="buscarCEP()">Buscar</button>
 
-<h2>Qual a cidade? </h2>
+<h2>Qual o endereço completo? </h2>
 <div id="divResultado"></div>
 
 </body>
@@ -21,7 +21,7 @@ Informe o cep que deseja consultar: <input type="text" id="txtcep"/>
 		var urlServicoCep = "http://viacep.com.br/ws/" + cep + "/json/";
 		var respostaParceiro = httpGet(urlServicoCep);
 		var resultado = JSON.parse(respostaParceiro);
-		document.getElementById('divResultado').innerHTML = resultado.localidade;
+		document.getElementById('divResultado').innerHTML = resultado.logradouro + " - "  + resultado.bairro + " - " + resultado.localidade + " - "  + resultado.uf;
 	}
 	function httpGet(urlServicoCep)
 	{
